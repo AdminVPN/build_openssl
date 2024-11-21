@@ -19,7 +19,7 @@ OUTPUT_DIR="libs/android/clang"
 
 # Clean output:
 rm -rf $OUTPUT_DIR
-sudo mkdir -p $OUTPUT_DIR
+mkdir -p $OUTPUT_DIR
 
 build_android_clang() {
 	rm -rf ${OPENSSL_VERSION}
@@ -45,12 +45,12 @@ build_android_clang() {
 	./Configure  $CONFIGURE_PLATFORM -D__ANDROID_API__=$ANDROID_API shared threads no-asm no-sse2 no-ssl2 no-ssl3 no-comp no-hw no-engine
     
     make build_libs -j8
-	sudo mkdir -p ../$OUTPUT_DIR/${ARCHITECTURE}/
+	mkdir -p ../$OUTPUT_DIR/${ARCHITECTURE}/
 
     file libcrypto.so
     file libssl.so
 
-    sudo cp libcrypto.a ../$OUTPUT_DIR/${ARCHITECTURE}/libcrypto.a
+    cp libcrypto.a ../$OUTPUT_DIR/${ARCHITECTURE}/libcrypto.a
 	sudo cp libssl.a ../$OUTPUT_DIR/${ARCHITECTURE}/libssl.a
 	sudo cp libcrypto.so ../$OUTPUT_DIR/${ARCHITECTURE}/libcrypto.so
 	sudo cp libssl.so ../$OUTPUT_DIR/${ARCHITECTURE}/libssl.so
