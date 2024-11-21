@@ -39,7 +39,7 @@ build_android_clang() {
 
 	# Build openssl libraries
 	#perl -pi -w -e 's/\-mandroid//g;' ./Configure
-	PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+	PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
 	#turn off warning  macro-redefined
 	# export CFLAGS="-Wno-macro-redefined -O3"
 	./Configure  $CONFIGURE_PLATFORM -D__ANDROID_API__=$ANDROID_API shared threads no-asm no-sse2 no-ssl2 no-ssl3 no-comp no-hw no-engine
